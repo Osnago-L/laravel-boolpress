@@ -1,0 +1,42 @@
+html,
+body {
+  background-color: #fff;
+  color: #636b6f;
+  font-family: "Nunito", sans-serif;
+  font-weight: 200;
+  margin: 0;
+  padding: 0;
+}
+
+.links > a {
+  color: #636b6f;
+  padding: 0 25px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.nav_front {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 60px;
+  width: 100vw;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin-bottom: 40px;
+  background-color: white;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+.main_top_margin {
+  margin-top: 100px;
+}
+
