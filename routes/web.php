@@ -13,9 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('front');
-});
+
+
+// Route::get('/', function () {
+//     return view('front');
+// });
+
+// Route::get('/home', function(){
+//     return view('front'); 
+// })->name('home');
 
 Auth::routes();
 
@@ -28,9 +34,9 @@ Route::middleware('auth')
         Route::resource('/posts', 'PostController');
 });
 
-Route::get('/home', function(){
-    return view('front'); 
-})->name('home');
+Route::get("{any?}", function() {
+    return view("front");
+})->where("any", ".*");
 
 
 

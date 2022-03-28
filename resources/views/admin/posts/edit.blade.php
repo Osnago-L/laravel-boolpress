@@ -25,6 +25,10 @@
                     @endforeach
                 </select>
             </div>
+            <div class="form-group">
+                <label for="exampleFormControlFile1">Example file input</label>
+                <input type="file" class="form-control-file" id="img_upload" name="img_upload">
+            </div>
             @foreach ($data_tags as $element)
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" name="tags_id[]" id="{{$element->slug}}" value="{{$element->id}}">

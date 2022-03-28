@@ -16,9 +16,11 @@ class PostController extends Controller
             'data' => $api
         ]);
     }
-    public function filter($category_id){
+    public function filter($slug){
         
-        $api = Post::where('category_id', $category_id)->get();
+        $api = Post::where('slug', $slug)
+        ->with('category','tags')
+        ->get();
         return response()->json([
             'success' => true,
             'data' => $api

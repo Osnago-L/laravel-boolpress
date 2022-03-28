@@ -26,10 +26,8 @@ Route::get('/posts', 'Api\PostController@index');
 
 Route::get('/category', 'Api\CategoryController@index');
 
-// fetch category 
+// fetch post id with slug
+
+Route::get('/posts/{slug}', 'Api\PostController@filter');
 
 
-
-// category filter id
-
-// Route::get('/posts/{category_id}', 'Api\PostController@filter');

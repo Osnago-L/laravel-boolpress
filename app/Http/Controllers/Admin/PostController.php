@@ -8,6 +8,7 @@ use App\Post;
 use App\Category;
 use App\Tag;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -46,7 +47,8 @@ class PostController extends Controller
         $request->validate([
             "posts_title" => 'required|min:1|max:50',
             "content" => 'required',
-            "category_id"=>'nullable|exists:categories,id'
+            "category_id"=>'nullable|exists:categories,id',
+            "img_upload"=>'nullable'
         ]);
 
 
@@ -60,12 +62,22 @@ class PostController extends Controller
         }
 
         $data['slug'] = $tempSlug;
+
+        if (isset($data['img_upload'])) {
+            $img_path = Storage::put('uploads', $data['img_upload']);
+            $data['img_upload'] = $img_path;
+        }
        
 
         $newPost = new Post();
         $newPost->fill($data);
         $newPost->save();
         $newPost->tags()->sync(isset($data['tags_id'])?$data['tags_id']:[]);
+
+
+        
+
+
 
         return redirect()->route('admin.posts.show', $newPost->id);
     }
@@ -106,7 +118,8 @@ class PostController extends Controller
         $request->validate([
             "posts_title" => 'required|min:1|max:50',
             "content" => 'required',
-            "category_id"=>'nullable|exists:categories,id'
+            "category_id"=>'nullable|exists:categories,id',
+            "img_upload"=>'nullable'
         ]);
 
 
@@ -119,6 +132,14 @@ class PostController extends Controller
             $cont++;
         }
         $data['slug'] = $tempSlug;
+
+
+        // NOT WORKING (PERMISSION ISSUE)
+
+        if (isset($data['img_upload'])) {
+            $img_path = Storage::put('uploads', $data['img_upload']);
+            $data['img_upload'] = $img_path;
+        }
 
         $post->fill($data);
         $post->save();

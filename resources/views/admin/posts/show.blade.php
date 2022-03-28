@@ -3,6 +3,9 @@
 @section('content')
 
 <div class="container">
+    @if ($post->img_upload)
+        <img src="{{asset('storage/'.$post->img_upload)}}" alt="">
+    @endif
     <div>
         <h4>Nome Post:</h6>
         <span>{{$post->posts_title}}</span>

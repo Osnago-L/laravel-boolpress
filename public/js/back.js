@@ -37329,7 +37329,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\Coding\Boolean\Lezioni Boolean\Esercizi\Lezione60_laravel-api\laravel-api\resources\js\back.js */"./resources/js/back.js");
+module.exports = __webpack_require__(/*! D:\Coding\Boolean\Lezioni Boolean\Esercizi\Lezione61_laravel-boolpress\laravel-boolpress\resources\js\back.js */"./resources/js/back.js");
 
 
 /***/ })
